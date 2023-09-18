@@ -19,7 +19,6 @@
 		2F80B7682AB77011006925E5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B7672AB77011006925E5 /* Model.swift */; };
 		2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */; };
 		2F80B76C2AB77301006925E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B76B2AB77301006925E5 /* NetworkManager.swift */; };
-		2F80B76F2AB7AE84006925E5 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 2F80B76E2AB7AE84006925E5 /* MyLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F80B76F2AB7AE84006925E5 /* MyLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,9 +85,6 @@
 		2F29AFF42AB4D4EB005EB01E = {
 			isa = PBXGroup;
 			children = (
-				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
-				2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */,
-				2F80B7672AB77011006925E5 /* Model.swift */,
 				2F29AFFF2AB4D4EB005EB01E /* CandySpace */,
 				2F29B0162AB4D4EC005EB01E /* CandySpaceTests */,
 				2F29B0202AB4D4EC005EB01E /* CandySpaceUITests */,
@@ -110,6 +105,9 @@
 		2F29AFFF2AB4D4EB005EB01E /* CandySpace */ = {
 			isa = PBXGroup;
 			children = (
+				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
+				2F80B7672AB77011006925E5 /* Model.swift */,
+				2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */,
 				2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */,
 				2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */,
 				2F29B0042AB4D4EB005EB01E /* ViewController.swift */,
@@ -156,7 +154,6 @@
 			);
 			name = CandySpace;
 			packageProductDependencies = (
-				2F80B76E2AB7AE84006925E5 /* MyLibrary */,
 			);
 			productName = CandySpace;
 			productReference = 2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */;
@@ -231,7 +228,6 @@
 			);
 			mainGroup = 2F29AFF42AB4D4EB005EB01E;
 			packageReferences = (
-				2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */,
 			);
 			productRefGroup = 2F29AFFE2AB4D4EB005EB01E /* Products */;
 			projectDirPath = "";
@@ -643,25 +639,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Denoble/SwiftRESTAPICALL.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2F80B76E2AB7AE84006925E5 /* MyLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */;
-			productName = MyLibrary;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F29AFF52AB4D4EB005EB01E /* Project object */;
 }

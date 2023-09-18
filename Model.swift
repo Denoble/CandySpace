@@ -9,25 +9,23 @@ import Foundation
 
 struct Gallery: Decodable {
 
-  var total     : Int?    = nil
-  var totalHits : Int?    = nil
-  var hits      : [Hits]? = []
+  var total: Int?
+  var totalHits: Int?
+  var hits: [Hits]?
 
   enum CodingKeys: String, CodingKey {
 
-    case total     = "total"
-    case totalHits = "totalHits"
-    case hits      = "hits"
-  
+    case total
+    case totalHits
+    case hits
   }
 
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    total     = try values.decodeIfPresent(Int.self    , forKey: .total     )
-    totalHits = try values.decodeIfPresent(Int.self    , forKey: .totalHits )
-    hits      = try values.decodeIfPresent([Hits].self , forKey: .hits      )
- 
+    total     = try values.decodeIfPresent(Int.self, forKey: .total     )
+    totalHits = try values.decodeIfPresent(Int.self, forKey: .totalHits )
+    hits      = try values.decodeIfPresent([Hits].self, forKey: .hits )
   }
 
   init() {
@@ -38,28 +36,28 @@ struct Gallery: Decodable {
 
 struct Hits: Decodable {
 
-  var id              : Int?    = nil
-  var pageURL         : String? = nil
-  var type            : String? = nil
-  var tags            : String? = nil
-  var previewURL      : String? = nil
-  var previewWidth    : Int?    = nil
-  var previewHeight   : Int?    = nil
-  var webformatURL    : String? = nil
-  var webformatWidth  : Int?    = nil
-  var webformatHeight : Int?    = nil
-  var largeImageURL   : String? = nil
-  var imageWidth      : Int?    = nil
-  var imageHeight     : Int?    = nil
-  var imageSize       : Int?    = nil
-  var views           : Int?    = nil
-  var downloads       : Int?    = nil
-  var collections     : Int?    = nil
-  var likes           : Int?    = nil
-  var comments        : Int?    = nil
-  var userId          : Int?    = nil
-  var user            : String? = nil
-  var userImageURL    : String? = nil
+  var id: Int?
+  var pageURL: String?
+  var type: String?
+  var tags: String?
+  var previewURL: String?
+  var previewWidth: Int?
+  var previewHeight: Int?
+  var webformatURL: String?
+  var webformatWidth: Int?
+  var webformatHeight: Int?
+  var largeImageURL: String?
+  var imageWidth: Int?
+  var imageHeight: Int?
+  var imageSize: Int?
+  var views: Int?
+  var downloads: Int?
+  var collections: Int?
+  var likes: Int?
+  var comments: Int?
+  var userId: Int?
+  var user: String?
+  var userImageURL: String?
 
   enum CodingKeys: String, CodingKey {
 
@@ -85,35 +83,33 @@ struct Hits: Decodable {
     case userId          = "user_id"
     case user            = "user"
     case userImageURL    = "userImageURL"
-  
   }
 
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
 
-    id              = try values.decodeIfPresent(Int.self    , forKey: .id              )
-    pageURL         = try values.decodeIfPresent(String.self , forKey: .pageURL         )
-    type            = try values.decodeIfPresent(String.self , forKey: .type            )
-    tags            = try values.decodeIfPresent(String.self , forKey: .tags            )
-    previewURL      = try values.decodeIfPresent(String.self , forKey: .previewURL      )
-    previewWidth    = try values.decodeIfPresent(Int.self    , forKey: .previewWidth    )
-    previewHeight   = try values.decodeIfPresent(Int.self    , forKey: .previewHeight   )
-    webformatURL    = try values.decodeIfPresent(String.self , forKey: .webformatURL    )
-    webformatWidth  = try values.decodeIfPresent(Int.self    , forKey: .webformatWidth  )
-    webformatHeight = try values.decodeIfPresent(Int.self    , forKey: .webformatHeight )
-    largeImageURL   = try values.decodeIfPresent(String.self , forKey: .largeImageURL   )
-    imageWidth      = try values.decodeIfPresent(Int.self    , forKey: .imageWidth      )
-    imageHeight     = try values.decodeIfPresent(Int.self    , forKey: .imageHeight     )
-    imageSize       = try values.decodeIfPresent(Int.self    , forKey: .imageSize       )
-    views           = try values.decodeIfPresent(Int.self    , forKey: .views           )
-    downloads       = try values.decodeIfPresent(Int.self    , forKey: .downloads       )
-    collections     = try values.decodeIfPresent(Int.self    , forKey: .collections     )
-    likes           = try values.decodeIfPresent(Int.self    , forKey: .likes           )
-    comments        = try values.decodeIfPresent(Int.self    , forKey: .comments        )
-    userId          = try values.decodeIfPresent(Int.self    , forKey: .userId          )
-    user            = try values.decodeIfPresent(String.self , forKey: .user            )
-    userImageURL    = try values.decodeIfPresent(String.self , forKey: .userImageURL    )
- 
+    id    = try values.decodeIfPresent(Int.self, forKey: .id )
+    pageURL         = try values.decodeIfPresent(String.self, forKey: .pageURL)
+    type            = try values.decodeIfPresent(String.self, forKey: .type            )
+    tags            = try values.decodeIfPresent(String.self, forKey: .tags            )
+    previewURL      = try values.decodeIfPresent(String.self, forKey: .previewURL      )
+    previewWidth    = try values.decodeIfPresent(Int.self, forKey: .previewWidth    )
+    previewHeight   = try values.decodeIfPresent(Int.self, forKey: .previewHeight   )
+    webformatURL    = try values.decodeIfPresent(String.self, forKey: .webformatURL    )
+    webformatWidth  = try values.decodeIfPresent(Int.self, forKey: .webformatWidth  )
+    webformatHeight = try values.decodeIfPresent(Int.self, forKey: .webformatHeight )
+    largeImageURL   = try values.decodeIfPresent(String.self, forKey: .largeImageURL   )
+    imageWidth      = try values.decodeIfPresent(Int.self, forKey: .imageWidth      )
+    imageHeight     = try values.decodeIfPresent(Int.self, forKey: .imageHeight     )
+    imageSize       = try values.decodeIfPresent(Int.self, forKey: .imageSize       )
+    views           = try values.decodeIfPresent(Int.self, forKey: .views           )
+    downloads       = try values.decodeIfPresent(Int.self, forKey: .downloads       )
+    collections     = try values.decodeIfPresent(Int.self, forKey: .collections     )
+    likes           = try values.decodeIfPresent(Int.self, forKey: .likes           )
+    comments        = try values.decodeIfPresent(Int.self, forKey: .comments        )
+    userId          = try values.decodeIfPresent(Int.self, forKey: .userId          )
+    user            = try values.decodeIfPresent(String.self, forKey: .user            )
+    userImageURL    = try values.decodeIfPresent(String.self, forKey: .userImageURL    )
   }
 
   init() {

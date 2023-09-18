@@ -16,6 +16,16 @@ class ViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    var gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,
+                                UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 1).cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        // Set the start and end points for the gradient layer
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        return gradientLayer
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         // inset background image
@@ -26,16 +36,7 @@ class ViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        // Create a new gradient layer
-        let gradientLayer = CAGradientLayer()
-        // Set the colors and locations for the gradient layer
-        gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,
-                                UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 1).cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        // Set the start and end points for the gradient layer
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        // Set the frame to the layer
+        // set gradient layer frame and position
         gradientLayer.frame = CGRect(x: 0,
                                      y: view.frame.height * 3 / 4,
                                      width: view.frame.width,

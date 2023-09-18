@@ -56,8 +56,8 @@
 		2F29B01D2AB4D4EC005EB01E /* CandySpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandySpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F29B0212AB4D4EC005EB01E /* CandySpaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandySpaceUITests.swift; sourceTree = "<group>"; };
 		2F29B0232AB4D4EC005EB01E /* CandySpaceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandySpaceUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2F80B7672AB77011006925E5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		2F80B7672AB77011006925E5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = CandySpace/Model.swift; sourceTree = SOURCE_ROOT; };
+		2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GalleryViewModel.swift; path = ../GalleryViewModel.swift; sourceTree = "<group>"; };
 		2F80B76B2AB77301006925E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

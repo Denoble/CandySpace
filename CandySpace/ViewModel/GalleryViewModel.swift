@@ -6,6 +6,3 @@
 //
 
 import Foundation
-import MyLibrary
-
-//let network = NetworkManager

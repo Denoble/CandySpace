@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E207812AB8CF0400D0830F /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2077F2AB8CF0400D0830F /* SearchingViewController.swift */; };
+		02E207822AB8CF0400D0830F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E207802AB8CF0400D0830F /* ResultViewController.swift */; };
 		2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */; };
 		2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */; };
 		2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0042AB4D4EB005EB01E /* ViewController.swift */; };
@@ -19,7 +21,6 @@
 		2F80B7682AB77011006925E5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B7672AB77011006925E5 /* Model.swift */; };
 		2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */; };
 		2F80B76C2AB77301006925E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B76B2AB77301006925E5 /* NetworkManager.swift */; };
-		2F80B76F2AB7AE84006925E5 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 2F80B76E2AB7AE84006925E5 /* MyLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02E2077F2AB8CF0400D0830F /* SearchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchingViewController.swift; path = ../../../../CandySpace/CandySpace/CandySpace/ViewController/SearchingViewController.swift; sourceTree = "<group>"; };
+		02E207802AB8CF0400D0830F /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = ../../../../CandySpace/CandySpace/CandySpace/ViewController/ResultViewController.swift; sourceTree = "<group>"; };
 		2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F80B76F2AB7AE84006925E5 /* MyLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +86,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02E2077A2AB8CDB800D0830F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02E2077B2AB8CDD300D0830F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F80B7672AB77011006925E5 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02E2077C2AB8CDE300D0830F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				02E207802AB8CF0400D0830F /* ResultViewController.swift */,
+				02E2077F2AB8CF0400D0830F /* SearchingViewController.swift */,
+				2F29B0042AB4D4EB005EB01E /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		2F29AFF42AB4D4EB005EB01E = {
 			isa = PBXGroup;
 			children = (
-				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
-				2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */,
-				2F80B7672AB77011006925E5 /* Model.swift */,
 				2F29AFFF2AB4D4EB005EB01E /* CandySpace */,
 				2F29B0162AB4D4EC005EB01E /* CandySpaceTests */,
 				2F29B0202AB4D4EC005EB01E /* CandySpaceUITests */,
@@ -112,10 +137,13 @@
 			children = (
 				2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */,
 				2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */,
-				2F29B0042AB4D4EB005EB01E /* ViewController.swift */,
+				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
+				02E2077C2AB8CDE300D0830F /* ViewController */,
+				02E2077B2AB8CDD300D0830F /* Model */,
+				02E2077A2AB8CDB800D0830F /* ViewModel */,
 				2F29B0062AB4D4EB005EB01E /* Main.storyboard */,
-				2F29B0092AB4D4EC005EB01E /* Assets.xcassets */,
 				2F29B00B2AB4D4EC005EB01E /* LaunchScreen.storyboard */,
+				2F29B0092AB4D4EC005EB01E /* Assets.xcassets */,
 				2F29B00E2AB4D4EC005EB01E /* Info.plist */,
 			);
 			path = CandySpace;
@@ -156,7 +184,6 @@
 			);
 			name = CandySpace;
 			packageProductDependencies = (
-				2F80B76E2AB7AE84006925E5 /* MyLibrary */,
 			);
 			productName = CandySpace;
 			productReference = 2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */;
@@ -231,7 +258,6 @@
 			);
 			mainGroup = 2F29AFF42AB4D4EB005EB01E;
 			packageReferences = (
-				2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */,
 			);
 			productRefGroup = 2F29AFFE2AB4D4EB005EB01E /* Products */;
 			projectDirPath = "";
@@ -298,10 +324,12 @@
 			files = (
 				2F80B76C2AB77301006925E5 /* NetworkManager.swift in Sources */,
 				2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */,
+				02E207812AB8CF0400D0830F /* SearchingViewController.swift in Sources */,
 				2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */,
 				2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */,
 				2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */,
 				2F80B7682AB77011006925E5 /* Model.swift in Sources */,
+				02E207822AB8CF0400D0830F /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +512,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +541,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -643,25 +673,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Denoble/SwiftRESTAPICALL.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2F80B76E2AB7AE84006925E5 /* MyLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F80B76D2AB7AE84006925E5 /* XCRemoteSwiftPackageReference "SwiftRESTAPICALL" */;
-			productName = MyLibrary;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F29AFF52AB4D4EB005EB01E /* Project object */;
 }

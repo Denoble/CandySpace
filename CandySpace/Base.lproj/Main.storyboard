@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,24 +48,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5an-fX-o3J">
-                                <rect key="frame" x="15" y="354.33333333333331" width="363" height="43.333333333333314"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AiC-Qp-Sdi">
+                                <rect key="frame" x="15" y="348.33333333333331" width="363" height="55.333333333333314"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kaT-zy-OoV">
-                                        <rect key="frame" x="0.0" y="12.666666666666684" width="31.666666666666668" height="18.666666666666664"/>
-                                        <color key="tintColor" name="LightBlue"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type to search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3A-ba-SBh">
-                                        <rect key="frame" x="41.666666666666657" y="0.0" width="321.33333333333337" height="43.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5an-fX-o3J">
+                                        <rect key="frame" x="20" y="10" width="323" height="35.333333333333336"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kaT-zy-OoV">
+                                                <rect key="frame" x="0.0" y="3.6666666666666821" width="40.666666666666664" height="28.333333333333332"/>
+                                                <color key="tintColor" name="LightBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="pbm-YE-ubr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3A-ba-SBh">
+                                                <rect key="frame" x="50.666666666666657" y="0.0" width="272.33333333333337" height="35.333333333333336"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="LightBlue"/>
+                                                <color key="textColor" name="LightBlue"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kaT-zy-OoV" firstAttribute="width" secondItem="K3A-ba-SBh" secondAttribute="width" multiplier="0.15" id="ggc-j9-rJ6"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-RX-O0v">
-                                <rect key="frame" x="100" y="508.99999999999994" width="193" height="34.333333333333314"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5an-fX-o3J" firstAttribute="leading" secondItem="AiC-Qp-Sdi" secondAttribute="leading" constant="20" id="5B3-Jh-r1t"/>
+                                    <constraint firstAttribute="trailing" secondItem="5an-fX-o3J" secondAttribute="trailing" constant="20" id="6vQ-lx-4YY"/>
+                                    <constraint firstAttribute="bottom" secondItem="5an-fX-o3J" secondAttribute="bottom" constant="10" id="icx-q0-b67"/>
+                                    <constraint firstItem="5an-fX-o3J" firstAttribute="top" secondItem="AiC-Qp-Sdi" secondAttribute="top" constant="10" id="vqX-Jp-ATU"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-RX-O0v">
+                                <rect key="frame" x="100" y="503.66666666666674" width="193" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Sxg-d3-vqK"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SEARCH"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SEARCH" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="searchButtonAction:" destination="6Lf-hE-veT" eventType="touchUpInside" id="qVe-G4-7ic"/>
                                 </connections>
@@ -75,16 +104,17 @@
                         <viewLayoutGuide key="safeArea" id="ki7-iF-bQu"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5an-fX-o3J" firstAttribute="leading" secondItem="ki7-iF-bQu" secondAttribute="leading" constant="15" id="Fdy-Q5-aqH"/>
-                            <constraint firstItem="ki7-iF-bQu" firstAttribute="trailing" secondItem="5an-fX-o3J" secondAttribute="trailing" constant="15" id="LJX-gC-tQM"/>
                             <constraint firstItem="0ds-RX-O0v" firstAttribute="leading" secondItem="ki7-iF-bQu" secondAttribute="leading" constant="100" id="aJX-hx-rpL"/>
+                            <constraint firstItem="ki7-iF-bQu" firstAttribute="trailing" secondItem="AiC-Qp-Sdi" secondAttribute="trailing" constant="15" id="faZ-gY-iaX"/>
                             <constraint firstItem="ki7-iF-bQu" firstAttribute="trailing" secondItem="0ds-RX-O0v" secondAttribute="trailing" constant="100" id="m4h-Oa-Jxo"/>
                             <constraint firstItem="0ds-RX-O0v" firstAttribute="centerY" secondItem="ZWd-Ov-93k" secondAttribute="centerY" constant="100" id="oWx-nh-JqD"/>
-                            <constraint firstItem="5an-fX-o3J" firstAttribute="centerY" secondItem="ZWd-Ov-93k" secondAttribute="centerY" constant="-50" id="vWP-tt-94r"/>
+                            <constraint firstItem="AiC-Qp-Sdi" firstAttribute="centerY" secondItem="ZWd-Ov-93k" secondAttribute="centerY" constant="-50" id="qpg-sW-85B"/>
+                            <constraint firstItem="AiC-Qp-Sdi" firstAttribute="leading" secondItem="ki7-iF-bQu" secondAttribute="leading" constant="15" id="s5f-ta-0xu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7ai-mM-g6E"/>
                     <connections>
+                        <outlet property="searchBarView" destination="AiC-Qp-Sdi" id="u5E-ag-1qC"/>
                         <outlet property="searchButton" destination="0ds-RX-O0v" id="Bxy-Bx-7FD"/>
                         <outlet property="searchTextField" destination="K3A-ba-SBh" id="iMN-H3-akW"/>
                         <segue destination="yvq-dn-jfo" kind="show" identifier="toSearchResult" id="pxu-zm-1eg"/>
@@ -102,6 +132,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jqz-Mw-8xC">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Blue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="LightBlue"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -122,7 +156,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zVJ-XP-hP7">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U7v-rh-37w">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -130,19 +164,37 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollectionViewCell" id="Ul7-KF-5lF">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollectionViewCell" id="Ul7-KF-5lF" customClass="PhotoCollectionViewCell" customModule="CandySpace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8aT-n3-hYx">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIY-kU-lcL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="heh-hA-s9T"/>
+                                                        <constraint firstAttribute="height" constant="90" id="ht4-SG-8n5"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MIY-kU-lcL" firstAttribute="leading" secondItem="8aT-n3-hYx" secondAttribute="leading" id="OtK-hi-O5k"/>
+                                                <constraint firstItem="MIY-kU-lcL" firstAttribute="top" secondItem="8aT-n3-hYx" secondAttribute="top" id="fs9-Ox-iWb"/>
+                                                <constraint firstAttribute="trailing" secondItem="MIY-kU-lcL" secondAttribute="trailing" id="sbu-Mi-wlx"/>
+                                                <constraint firstAttribute="bottom" secondItem="MIY-kU-lcL" secondAttribute="bottom" id="udU-mm-neB"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="MIY-kU-lcL" id="ZpS-AS-80a"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g1H-YR-pbZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zVJ-XP-hP7" firstAttribute="top" secondItem="g1H-YR-pbZ" secondAttribute="top" id="SCX-3I-FKk"/>
                             <constraint firstItem="zVJ-XP-hP7" firstAttribute="leading" secondItem="g1H-YR-pbZ" secondAttribute="leading" id="ejg-9x-rjg"/>
@@ -162,11 +214,11 @@
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="Blue">
+            <color red="0.62745098039215685" green="0.66274509803921566" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LightBlue">
             <color red="0.031372549019607843" green="0.96862745098039216" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

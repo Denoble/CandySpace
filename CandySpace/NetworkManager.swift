@@ -11,27 +11,21 @@ import UIKit
 import UIKit
 //swiftlint:disable all
 struct CandySpaceURL{
-    let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
-    let searchParameter:String
-    //let apiKey = URLQueryItem(name: "key", value: "​13197033-03eec42c293d2323112b4cca6")
-    var q = URLQueryItem(name:"q", value:"blue+flowers")
-    let imageType = URLQueryItem(name: "image_type", value: "photo")
-    let pretty =  URLQueryItem(name: "pretty", value:"true")
+    static let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
+    static let imageType = URLQueryItem(name: "image_type", value: "photo")
+    static let pretty =  URLQueryItem(name: "pretty", value:"true")
     let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
-    init(searchParameter:String){
-        self.searchParameter = searchParameter
-         q = URLQueryItem(name: "q", value:self.searchParameter+"+flowers")
-    }
-   
-    var galleryurl:URL? {
+    
+    static func getGalleryurl(q:String) ->URL? {
+        var q = URLQueryItem(name:"q", value:q+"+flowers")
         guard let url = baseURL?.appending(queryItems: [
             q,
             imageType,
             pretty
         ]) else { return nil}
-
-     return url
- 
+        print(url)
+        return url
+        
         
        
     }
@@ -47,7 +41,7 @@ class NetworkManager: NetworkManagerHelper {
         let result = try jsonDecoder.decode(ResponseType.self, from: data)
         return result
     }
-    public  func handleLoadImageUrl(url: URL, imageView:UIImageView) async throws{
+    /*public  func handleLoadImageUrl(url: URL, imageView:UIImageView) async throws{
         
         let session = URLSession.shared
         let request = URLRequest(url:url)
@@ -57,7 +51,7 @@ class NetworkManager: NetworkManagerHelper {
             imageView.image = downloadedImage
         }
         
-    }
+    }*/
 }
 
 protocol NetworkManagerHelper{

@@ -7,28 +7,21 @@
 
 import Foundation
 import UIKit
-let networkManager =  NetworkManager()
-class GalleryViewModel{
-    let  candySpaceConstants:CandySpaceURL
-  lazy  var hitsArray = HitArrays()
-    init(candySpceConstant:CandySpaceURL){
-        self.candySpaceConstants = candySpceConstant
-    }
 
-    func getImageGallery() async {
-        guard let url =  candySpaceConstants.galleryurl else{ return }
+class GalleryViewModel{
+    let networkManager:NetworkManagerHelper
+    init(initNetworkManager:NetworkManagerHelper){
+        networkManager = initNetworkManager
+    }
+  lazy  var hitsArray = HitArrays()
+
+    func getImageGallery(url:String) async {
+        
+        guard let url = CandySpaceURL.getGalleryurl(q: url) else{
+            return }
         do{
             let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
             hitsArray = gallery.hits ?? HitArrays()
-            print(hitsArray)
-        }catch{
-            print(String(describing: error))
-        }
-        
-    }
-    func displayImage(url:URL,uiImage:UIImageView) async{
-        do{
-            try await networkManager.handleLoadImageUrl(url: url, imageView: uiImage)
         }catch{
             print(String(describing: error))
         }

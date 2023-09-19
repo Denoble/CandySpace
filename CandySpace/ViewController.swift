@@ -9,16 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let constants = CandySpaceURL(searchParameter: "Stone")
+    let searchParameter =  "cars"
+    let networkManager = NetworkManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        guard let stringUrl = constants.galleryurl else{return}
-        let viewModel = GalleryViewModel(candySpceConstant: constants)
+        let viewModel = GalleryViewModel(initNetworkManager: networkManager)
         Task{
-            await viewModel.getImageGallery()
+            await viewModel.getImageGallery(url: self.searchParameter)
+            for url in viewModel.hitsArray{
+                print(url.largeImageURL!)
+            }
         }
-        print(viewModel.candySpaceConstants.galleryurl)
     }
 
 

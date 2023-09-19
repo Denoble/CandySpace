@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 let networkManager =  NetworkManager()
 class GalleryViewModel{
     let  candySpaceConstants:CandySpaceURL
@@ -20,6 +21,14 @@ class GalleryViewModel{
             let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
             hitsArray = gallery.hits ?? HitArrays()
             print(hitsArray)
+        }catch{
+            print(String(describing: error))
+        }
+        
+    }
+    func displayImage(url:URL,uiImage:UIImageView) async{
+        do{
+            try await networkManager.handleLoadImageUrl(url: url, imageView: uiImage)
         }catch{
             print(String(describing: error))
         }

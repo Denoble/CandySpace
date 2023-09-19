@@ -16,7 +16,6 @@ class GalleryViewModel{
 
     func getImageGallery() async {
         guard let url =  candySpaceConstants.galleryurl else{ return }
-        print("URL IS \(url)")
         do{
             let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
             hitsArray = gallery.hits ?? HitArrays()

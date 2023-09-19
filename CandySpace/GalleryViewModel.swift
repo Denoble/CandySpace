@@ -6,12 +6,11 @@
 //
 
 import Foundation
+let networkManager =  NetworkManager()
 class GalleryViewModel{
-    let network:NetworkManagerHelper
-    let  candySpaceConstants:CandySpaceConstant
+    let  candySpaceConstants:CandySpaceURL
   lazy  var hitsArray = HitArrays()
-    init(network:NetworkManagerHelper,candySpceConstant:CandySpaceConstant){
-        self.network = network
+    init(candySpceConstant:CandySpaceURL){
         self.candySpaceConstants = candySpceConstant
     }
 
@@ -19,7 +18,7 @@ class GalleryViewModel{
         guard let url =  candySpaceConstants.galleryurl else{ return }
         print("URL IS \(url)")
         do{
-            let gallery = try await self.network.taskForGETRequest(url: url, responseType: Gallery.self)
+            let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
             hitsArray = gallery.hits ?? HitArrays()
             print(hitsArray)
         }catch{

@@ -10,7 +10,7 @@ import UIKit
 
 import UIKit
 //swiftlint:disable all
-struct CandySpaceConstant{
+struct CandySpaceURL{
     let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
     let searchParameter:String
     //let apiKey = URLQueryItem(name: "key", value: "​13197033-03eec42c293d2323112b4cca6")

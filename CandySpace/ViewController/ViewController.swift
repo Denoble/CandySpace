@@ -16,7 +16,8 @@ class ViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    var gradientLayer: CAGradientLayer = {
+    // gradient layer for background
+    var gradientLayerForBG: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,
                                 UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 1).cgColor]
@@ -37,12 +38,12 @@ class ViewController: UIViewController {
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         // set gradient layer frame and position
-        gradientLayer.frame = CGRect(x: 0,
+        gradientLayerForBG.frame = CGRect(x: 0,
                                      y: view.frame.height * 3 / 4,
                                      width: view.frame.width,
-                                     height: view.frame.height/4)
+                                     height: view.frame.height / 4)
         // Add the gradient layer as a sublayer to the background view
-        view.layer.insertSublayer(gradientLayer, at: 1)
+        view.layer.insertSublayer(gradientLayerForBG, at: 1)
         // set the timer for navigating to search page
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             self.performSegue(withIdentifier: "toSearch", sender: nil)

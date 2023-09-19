@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="966" y="5"/>
         </scene>
-        <!--Searching View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="0iV-Jl-WNj">
             <objects>
-                <viewController id="6Lf-hE-veT" customClass="SearchingViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Lf-hE-veT" customClass="SearchViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZWd-Ov-93k">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="searchButtonAction:" destination="6Lf-hE-veT" eventType="touchUpInside" id="qVe-G4-7ic"/>
+                                    <action selector="searchButtonAction:" destination="6Lf-hE-veT" eventType="touchUpInside" id="Lik-fL-hiX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,10 +114,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="7ai-mM-g6E"/>
                     <connections>
-                        <outlet property="searchBarView" destination="AiC-Qp-Sdi" id="u5E-ag-1qC"/>
-                        <outlet property="searchButton" destination="0ds-RX-O0v" id="Bxy-Bx-7FD"/>
-                        <outlet property="searchTextField" destination="K3A-ba-SBh" id="iMN-H3-akW"/>
-                        <segue destination="yvq-dn-jfo" kind="show" identifier="toSearchResult" id="pxu-zm-1eg"/>
+                        <outlet property="searchBarView" destination="AiC-Qp-Sdi" id="UfL-uU-reh"/>
+                        <outlet property="searchButton" destination="0ds-RX-O0v" id="KA3-nl-beD"/>
+                        <outlet property="searchTextField" destination="K3A-ba-SBh" id="8Rz-Oc-lvD"/>
+                        <segue destination="yvq-dn-jfo" kind="show" identifier="toGallery" id="pxu-zm-1eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jY-Pc-OM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Blue"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="LightBlue"/>
+                            <color key="textColor" name="Blue"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="100" y="5"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="vdl-LB-cdW">
             <objects>
-                <viewController id="yvq-dn-jfo" customClass="ResultViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yvq-dn-jfo" customClass="GalleryViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yao-dv-5xw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,7 +204,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xmg-S2-RxL"/>
                     <connections>
-                        <outlet property="photoCollectionView" destination="zVJ-XP-hP7" id="AC5-Jc-cYP"/>
+                        <outlet property="photoCollectionView" destination="zVJ-XP-hP7" id="sk3-hr-UPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSU-mN-716" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

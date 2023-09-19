@@ -15,9 +15,9 @@ class GalleryViewModel{
     }
   lazy  var hitsArray = HitArrays()
 
-    func getImageGallery(url:String) async {
+    func getImageGallery(searchParameter:String) async {
         
-        guard let url = CandySpaceURL.getGalleryurl(q: url) else{
+        guard let url = CandySpaceURL.getGalleryurl(q: searchParameter) else{
             return }
         do{
             let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)

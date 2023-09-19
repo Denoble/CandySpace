@@ -41,23 +41,12 @@ class NetworkManager: NetworkManagerHelper {
         let result = try jsonDecoder.decode(ResponseType.self, from: data)
         return result
     }
-    /*public  func handleLoadImageUrl(url: URL, imageView:UIImageView) async throws{
-        
-        let session = URLSession.shared
-        let request = URLRequest(url:url)
-        let (data,response) =     try await session.data(for:request)
-        let downloadedImage = UIImage(data: data)
-        DispatchQueue.main.async {
-            imageView.image = downloadedImage
-        }
-        
-    }*/
 }
 
 protocol NetworkManagerHelper{
     func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type) async throws -> ResponseType
 }
-//swiftlint:enable all
+
 
 extension URL {
     /// Returns a new URL by adding the query items, or nil if the URL doesn't support it.

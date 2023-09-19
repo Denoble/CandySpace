@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let viewModel = GalleryViewModel(initNetworkManager: networkManager)
         Task{
-            await viewModel.getImageGallery(url: self.searchParameter)
+            await viewModel.getImageGallery(searchParameter: self.searchParameter)
             for url in viewModel.hitsArray{
                 print(url.largeImageURL!)
             }

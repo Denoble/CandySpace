@@ -8,10 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         styleSetting()
-        // set the timer for navigating to next screen
+        // set the timer for navigating to search page
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             self.performSegue(withIdentifier: "toSearch", sender: nil)
         }
@@ -25,7 +26,6 @@ class ViewController: UIViewController {
             imageView.translatesAutoresizingMaskIntoConstraints = false
             return imageView
         }()
-        // gradient layer for background
         let gradientLayerForBG: CAGradientLayer = {
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,

@@ -25,7 +25,13 @@ class GalleryViewController: UIViewController {
         // photo collection data source delegate
         photoCollectionView.dataSource = self
         Task {
-            await self.galleryViewModel.getImageGallery(searchParameter: query)
+            let result = await self.galleryViewModel.getImageGallery(searchParameter: query)
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
             }

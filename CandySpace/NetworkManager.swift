@@ -10,16 +10,15 @@ struct CandySpaceURL {
     static let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
     static let imageType = URLQueryItem(name: "image_type", value: "photo")
     static let pretty =  URLQueryItem(name: "pretty", value: "true")
-    let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
-    
+//    let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
     static func getGalleryurl(query: String) -> URL? {
-        var query = URLQueryItem(name: "query", value: query + "+flowers")
+        let query = URLQueryItem(name: "q", value: query )
         guard let url = baseURL?.appending(queryItems: [
             query,
             imageType,
             pretty
         ]) else { return nil}
-        print(url)
+//        print(url)
         return url
     }
 }
@@ -28,7 +27,7 @@ class NetworkManager: NetworkManagerHelper {
     (url: URL, responseType: ResponseType.Type) async throws -> ResponseType {
         let session = URLSession.shared
         let request = URLRequest(url: url)
-        let (data, response) = try await session.data(for: request)
+        let (data, _) = try await session.data(for: request)
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         let result = try jsonDecoder.decode(ResponseType.self, from: data)

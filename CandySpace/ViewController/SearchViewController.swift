@@ -8,44 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    // background image setting
-    var imageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.image = UIImage(named: "BG")
-        imageView.contentMode = .scaleToFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    // gradient layer for background
-    var gradientLayerForBG: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,
-                                UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 1).cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        // Set the start and end points for the gradient layer
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        return gradientLayer
-    }()
-    // gradient layer for search button
-    var gradientLayerForSearchButton: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(red: 0.396, green: 0.451, blue: 0.929, alpha: 1).cgColor,
-                                UIColor(red: 0.078, green: 0.824, blue: 0.902, alpha: 1).cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        // Set the start and end points for the gradient layer
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.cornerRadius = 20
-        return gradientLayer
-    }()
-    // blur effect
-    var blurEffectViewForBG: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        return blurEffectView
-    }()
-
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchBarView: UIView!
@@ -54,6 +16,48 @@ class SearchViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        styleSetting()
+        // hide navigation back button
+        self.navigationItem.hidesBackButton = true
+    }
+    func styleSetting() {
+        // background image setting
+        let imageView: UIImageView = {
+            let imageView = UIImageView(frame: .zero)
+            imageView.image = UIImage(named: "BG")
+            imageView.contentMode = .scaleToFill
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        }()
+        // gradient layer for background
+        let gradientLayerForBG: CAGradientLayer = {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 0).cgColor,
+                                    UIColor(red: 0, green: 0.008, blue: 0.063, alpha: 1).cgColor]
+            gradientLayer.locations = [0.0, 1.0]
+            // Set the start and end points for the gradient layer
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+            return gradientLayer
+        }()
+        // gradient layer for search button
+        let gradientLayerForSearchButton: CAGradientLayer = {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [UIColor(red: 0.396, green: 0.451, blue: 0.929, alpha: 1).cgColor,
+                                    UIColor(red: 0.078, green: 0.824, blue: 0.902, alpha: 1).cgColor]
+            gradientLayer.locations = [0.0, 1.0]
+            // Set the start and end points for the gradient layer
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+            gradientLayer.cornerRadius = 20
+            return gradientLayer
+        }()
+        // blur effect
+        let blurEffectViewForBG: UIVisualEffectView = {
+            let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            return blurEffectView
+        }()
         view.insertSubview(imageView, at: 0)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -79,8 +83,6 @@ class SearchViewController: UIViewController {
             string: "Search for Photos",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
-        // hide navigation back button
-        self.navigationItem.hidesBackButton = true
     }
     // MARK: - Navigation
 

@@ -11,8 +11,7 @@ class GalleryViewModel {
     init(initNetworkManager: NetworkManagerHelper) {
         networkManager = initNetworkManager
     }
-  lazy  var hitsArray = HitArrays()
-
+    lazy var hitsArray = HitArrays()
     func getImageGallery(searchParameter: String) async {
         guard let url = CandySpaceURL.getGalleryurl(query: searchParameter) else {
             return }

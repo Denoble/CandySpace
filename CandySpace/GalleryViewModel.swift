@@ -45,14 +45,28 @@ class GalleryViewModel {
     func setCachedImages(hits: HitArrays, searchTerm: String) {
         SearchResultCache.shared.setResults(results: hits, searchTerm: searchTerm)
     }
-    func getImage(url: URL) -> UIImage? {
+    func getImage(url: URL) async -> UIImage? {
         if let cachedImage = ImageCache.shared.getImage(url: url.absoluteString) {
             return cachedImage
         } else {
-            let img = UIImageView()
-            img.load(url: url)
-            ImageCache.shared.setImage(image: img.image, url: url.absoluteString)
-            return img.image
+            let loadedImage = await loadImageAsync(url: url)
+            if let loadedImage = loadedImage {
+                ImageCache.shared.setImage(image: loadedImage, url: url.absoluteString)
+            }
+            return loadedImage
         }
     }
+
+    func loadImageAsync(url: URL) async -> UIImage? {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                return image
+            }
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+
 }

@@ -90,7 +90,11 @@ extension GalleryViewController: UICollectionViewDataSource {
         guard let url = URL(string: galleryViewModel.images[indexPath.row].previewURL ?? "") else {
             return UICollectionViewCell()
         }
-        cell.photoImageView.load(url: url)
+        Task {
+            if let image = await galleryViewModel.getImage(url: url) {
+                cell.photoImageView.image = image
+            }
+        }
         cell.backgroundColor = .black
         cell.layer.cornerRadius = 5
         return cell

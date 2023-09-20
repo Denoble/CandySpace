@@ -6,29 +6,67 @@
 //
 
 import Foundation
-enum NetworkError: Error {
-    case invalidURL
-    case requestFailed
-    case noetworkManagerFailed
-    // Add more error cases as needed
-}
+import UIKit
 
 class GalleryViewModel {
     let networkManager: NetworkManagerHelper
-    init(initNetworkManager: NetworkManagerHelper) {
-        networkManager = initNetworkManager
+    lazy var images = HitArrays()
+    init(networkManager: NetworkManagerHelper) {
+        self.networkManager = networkManager
     }
-    lazy var hitsArray = HitArrays()
-    func getImageGallery(searchParameter: String) async -> Result<Gallery, NetworkError> {
-        guard let url = CandySpaceURL.getGalleryurl(query: searchParameter) else {
-            return .failure(.invalidURL)
+
+    func getImageGallery(searchTerm: String) async {
+        if let cachedImages = getCachedImages(searchTerm: searchTerm) {
+            images = cachedImages
+            return
+        }
+        guard let url = CandySpaceURL.getGalleryurl(searchTerm: searchTerm) else {
+            return
         }
         do {
-            let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
-            self.hitsArray = gallery.hits ?? []
-            return .success(gallery)
+            let result = try await networkManager.get(url: url, responseType: Gallery.self)
+            switch result {
+            case .success(let res):
+                images = res.hits ?? []
+                setCachedImages(hits: images, searchTerm: searchTerm)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         } catch {
-            return .failure(.noetworkManagerFailed)
+            print(error.localizedDescription)
         }
     }
+    func getCachedImages(searchTerm: String) -> HitArrays? {
+        if let cachedResults = SearchResultCache.shared.getResults(searchTerm: searchTerm) {
+            return cachedResults
+        }
+        return nil
+    }
+    func setCachedImages(hits: HitArrays, searchTerm: String) {
+        SearchResultCache.shared.setResults(results: hits, searchTerm: searchTerm)
+    }
+    func getImage(url: URL) async -> UIImage? {
+        if let cachedImage = ImageCache.shared.getImage(url: url.absoluteString) {
+            return cachedImage
+        } else {
+            let loadedImage = await loadImageAsync(url: url)
+            if let loadedImage = loadedImage {
+                ImageCache.shared.setImage(image: loadedImage, url: url.absoluteString)
+            }
+            return loadedImage
+        }
+    }
+
+    func loadImageAsync(url: URL) async -> UIImage? {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                return image
+            }
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+
 }

@@ -6,23 +6,27 @@
 //
 
 import Foundation
-class GalleryViewModel{
-    let networkManager:NetworkManagerHelper
-    init(initNetworkManager:NetworkManagerHelper){
+enum NetworkError: Error {
+    case invalidURL
+    case requestFailed
+    // Add more error cases as needed
+}
+
+class GalleryViewModel {
+    let networkManager: NetworkManagerHelper
+    init(initNetworkManager: NetworkManagerHelper) {
         networkManager = initNetworkManager
     }
-  lazy  var hitsArray = HitArrays()
 
-    func getImageGallery(searchParameter:String) async {
-        
-        guard let url = CandySpaceURL.getGalleryurl(q: searchParameter) else{
-            return }
-        do{
-            let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
-            hitsArray = gallery.hits ?? HitArrays()
-        }catch{
-            print(String(describing: error))
+    func getImageGallery(searchParameter: String) async -> Result<Gallery, Error> {
+        guard let url = CandySpaceURL.getGalleryurl(q: searchParameter) else {
+            return .failure(NetworkError.invalidURL)
         }
-        
+        do {
+            let gallery = try await networkManager.taskForGETRequest(url: url, responseType: Gallery.self)
+            return .success(gallery)
+        } catch {
+            return .failure(error)
+        }
     }
 }

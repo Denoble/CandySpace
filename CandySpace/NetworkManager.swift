@@ -6,24 +6,20 @@
 //
 
 import Foundation
-struct CandySpaceURL{
+struct CandySpaceURL {
     static let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
     static let imageType = URLQueryItem(name: "image_type", value: "photo")
     static let pretty =  URLQueryItem(name: "pretty", value:"true")
-    let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
-    
-    static func getGalleryurl(q:String) ->URL? {
-        var q = URLQueryItem(name:"q", value:q+"+flowers")
+//    let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
+    static func getGalleryurl(query: String) -> URL? {
+        let query = URLQueryItem(name: "q", value: query)
         guard let url = baseURL?.appending(queryItems: [
-            q,
+            query,
             imageType,
             pretty
         ]) else { return nil}
         print(url)
         return url
-        
-        
-       
     }
 }
 class NetworkManager: NetworkManagerHelper {
@@ -31,7 +27,7 @@ class NetworkManager: NetworkManagerHelper {
     (url: URL, responseType: ResponseType.Type) async throws -> ResponseType {
         let session = URLSession.shared
         let request = URLRequest(url: url)
-        let (data, response) = try await session.data(for: request)
+        let (data, _) = try await session.data(for: request)
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         let result = try jsonDecoder.decode(ResponseType.self, from: data)
@@ -40,7 +36,10 @@ class NetworkManager: NetworkManagerHelper {
 }
 
 protocol NetworkManagerHelper{
-    func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type) async throws -> ResponseType
+    func taskForGETRequest<ResponseType: Decodable>(
+        url: URL,
+        responseType: ResponseType.Type
+    ) async throws -> ResponseType
 }
 
 

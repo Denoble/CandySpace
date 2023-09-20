@@ -9,7 +9,7 @@ import UIKit
 
 class GalleryViewController: UIViewController {
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    private let galleryViewModel = GalleryViewModel(initNetworkManager: NetworkManager())
+    private let galleryViewModel = GalleryViewModel(networkManager: NetworkManager())
     private let itemsPerRow: CGFloat = 4
     var query: String?
     override func viewDidLoad() {
@@ -25,13 +25,7 @@ class GalleryViewController: UIViewController {
         // photo collection data source delegate
         photoCollectionView.dataSource = self
         Task {
-            let result = await self.galleryViewModel.getImageGallery(searchParameter: query)
-            switch result {
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure)
-            }
+            await self.galleryViewModel.getImageGallery(searchTerm: query)
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
             }
@@ -82,7 +76,7 @@ class GalleryViewController: UIViewController {
 
 extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return galleryViewModel.hitsArray.count
+        return galleryViewModel.images.count
     }
     func collectionView(_
                         collectionView: UICollectionView,
@@ -93,10 +87,14 @@ extension GalleryViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? PhotoCollectionViewCell
         guard let cell = cell else { return UICollectionViewCell() }
-        guard let url = URL(string: galleryViewModel.hitsArray[indexPath.row].previewURL ?? "") else {
+        guard let url = URL(string: galleryViewModel.images[indexPath.row].previewURL ?? "") else {
             return UICollectionViewCell()
         }
-        cell.photoImageView.load(url: url)
+        Task {
+            if let image = await galleryViewModel.getImage(url: url) {
+                cell.photoImageView.image = image
+            }
+        }
         cell.backgroundColor = .black
         cell.layer.cornerRadius = 5
         return cell
@@ -126,18 +124,4 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
       ) -> CGFloat {
         return 5
       }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
 }

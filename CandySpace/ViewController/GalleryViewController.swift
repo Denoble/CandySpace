@@ -19,13 +19,14 @@ class GalleryViewController: UIViewController {
         guard let query = query else { return }
         if query.isEmpty {
             navigationItem.title = "Gallery"
+            throwAlert(title: "Oops!", errorMessage: "Please type somthing to search")
         } else {
             navigationItem.title = "Gallery for '\(query)'"
         }
         // photo collection data source delegate
         photoCollectionView.dataSource = self
         Task {
-            let result = await self.galleryViewModel.getImageGallery(searchParameter: query)
+            let result = query.isEmpty ? .failure(.invalidURL) : await self.galleryViewModel.getImageGallery(searchParameter: query)
             switch result {
             case .success(let success):
                 print(success)
@@ -77,6 +78,15 @@ class GalleryViewController: UIViewController {
         // blur effect view for background
         blurEffectViewForBG.frame = view.bounds
         view.insertSubview(blurEffectViewForBG, at: 1)
+    }
+    
+    func throwAlert(title: String, errorMessage: String) {
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
+        let alertActin = UIAlertAction(title: "OK", style: .cancel) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(alertActin)
+        self.present(alert, animated: true)
     }
 }
 

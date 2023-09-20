@@ -9,7 +9,7 @@ import Foundation
 struct CandySpaceURL {
     static let baseURL = URL(string: "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6")
     static let imageType = URLQueryItem(name: "image_type", value: "photo")
-    static let pretty =  URLQueryItem(name: "pretty", value:"true")
+    static let pretty =  URLQueryItem(name: "pretty", value: "true")
 //    let defaultUrlString = "https://pixabay.com/api/?key=13197033-03eec42c293d2323112b4cca6&q=dog+flowers&image_type=photo&pretty=true"
     static func getGalleryurl(query: String) -> URL? {
         let query = URLQueryItem(name: "q", value: query)
@@ -35,13 +35,12 @@ class NetworkManager: NetworkManagerHelper {
     }
 }
 
-protocol NetworkManagerHelper{
+protocol NetworkManagerHelper {
     func taskForGETRequest<ResponseType: Decodable>(
         url: URL,
         responseType: ResponseType.Type
     ) async throws -> ResponseType
 }
-
 
 extension URL {
     /// Returns a new URL by adding the query items, or nil if the URL doesn't support it.

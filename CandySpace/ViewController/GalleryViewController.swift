@@ -26,7 +26,7 @@ class GalleryViewController: UIViewController {
         // photo collection data source delegate
         photoCollectionView.dataSource = self
         Task {
-            await self.galleryViewModel.getImageGallery(searchTerm: query)
+            query.isEmpty ? nil : await self.galleryViewModel.getImageGallery(searchTerm: query)
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
             }
@@ -73,7 +73,6 @@ class GalleryViewController: UIViewController {
         blurEffectViewForBG.frame = view.bounds
         view.insertSubview(blurEffectViewForBG, at: 1)
     }
-    
     func throwAlert(title: String, errorMessage: String) {
         let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
         let alertActin = UIAlertAction(title: "OK", style: .cancel) { _ in

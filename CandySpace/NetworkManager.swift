@@ -22,6 +22,7 @@ struct CandySpaceURL {
         return url
     }
 }
+
 class NetworkManager: NetworkManagerHelper {
     public func taskForGETRequest<ResponseType: Decodable>
     (url: URL, responseType: ResponseType.Type) async throws -> ResponseType {

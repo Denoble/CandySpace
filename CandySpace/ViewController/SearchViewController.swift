@@ -19,6 +19,8 @@ class SearchViewController: UIViewController {
         styleSetting()
         // hide navigation back button
         self.navigationItem.hidesBackButton = true
+        //
+        searchTextField.becomeFirstResponder()
     }
     func styleSetting() {
         // background image setting

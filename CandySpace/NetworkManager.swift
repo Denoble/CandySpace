@@ -20,7 +20,7 @@ struct CandySpaceURL {
         ]) else {
             return nil
         }
-        print(url)
+//        print(url)
         return url
     }
 }
@@ -32,12 +32,12 @@ class NetworkManager: NetworkManagerHelper {
         do {
             let (data, response) = try await session.data(for: request)
             let jsonDecoder = JSONDecoder()
-            print(response)
+//            print(response)
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             let result = try jsonDecoder.decode(T.self, from: data)
             return .success(result)
         } catch {
-            return.failure(error)
+            return .failure(error)
         }
     }
 }

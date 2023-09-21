@@ -145,6 +145,7 @@
 				2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */,
 				2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */,
 				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
+				CA771D582ABA25280091788A /* Cache.swift */,
 				02E2077C2AB8CDE300D0830F /* ViewController */,
 				02E2077B2AB8CDD300D0830F /* Model */,
 				02E2077A2AB8CDB800D0830F /* ViewModel */,
@@ -152,7 +153,6 @@
 				2F29B00B2AB4D4EC005EB01E /* LaunchScreen.storyboard */,
 				2F29B0092AB4D4EC005EB01E /* Assets.xcassets */,
 				2F29B00E2AB4D4EC005EB01E /* Info.plist */,
-				CA771D582ABA25280091788A /* Cache.swift */,
 			);
 			path = CandySpace;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AYBK57X933;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CandySpace/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -547,7 +547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AYBK57X933;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CandySpace/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

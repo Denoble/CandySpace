@@ -46,6 +46,7 @@
 /* Begin PBXFileReference section */
 		021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		02ABBA542ABC87700005B079 /* CandySpace.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CandySpace.xctestplan; sourceTree = "<group>"; };
 		02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
 		2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +123,7 @@
 		2F29AFF42AB4D4EB005EB01E = {
 			isa = PBXGroup;
 			children = (
+				02ABBA542ABC87700005B079 /* CandySpace.xctestplan */,
 				2F29AFFF2AB4D4EB005EB01E /* CandySpace */,
 				2F29B0162AB4D4EC005EB01E /* CandySpaceTests */,
 				2F29B0202AB4D4EC005EB01E /* CandySpaceUITests */,

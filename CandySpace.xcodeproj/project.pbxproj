@@ -24,6 +24,8 @@
 		2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */; };
 		2F80B76C2AB77301006925E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80B76B2AB77301006925E5 /* NetworkManager.swift */; };
 		CA771D592ABA25280091788A /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA771D582ABA25280091788A /* Cache.swift */; };
+		CACB61B52ABCD5C700C9C7A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB61B42ABCD5C700C9C7A8 /* Constants.swift */; };
+		CACB61B92ABCF44500C9C7A8 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB61B82ABCF44500C9C7A8 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GalleryViewModel.swift; path = ../GalleryViewModel.swift; sourceTree = "<group>"; };
 		2F80B76B2AB77301006925E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA771D582ABA25280091788A /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		CACB61B42ABCD5C700C9C7A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CACB61B82ABCF44500C9C7A8 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +150,8 @@
 			children = (
 				2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */,
 				2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */,
-				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
-				CA771D582ABA25280091788A /* Cache.swift */,
+				CACB61BB2ABCF5D600C9C7A8 /* Utils */,
+				CACB61BA2ABCF5A900C9C7A8 /* Services */,
 				02E2077C2AB8CDE300D0830F /* ViewController */,
 				02E2077B2AB8CDD300D0830F /* Model */,
 				02E2077A2AB8CDB800D0830F /* ViewModel */,
@@ -175,6 +179,24 @@
 				2F29B0232AB4D4EC005EB01E /* CandySpaceUITestsLaunchTests.swift */,
 			);
 			path = CandySpaceUITests;
+			sourceTree = "<group>";
+		};
+		CACB61BA2ABCF5A900C9C7A8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2F80B76B2AB77301006925E5 /* NetworkManager.swift */,
+				CA771D582ABA25280091788A /* Cache.swift */,
+				CACB61B82ABCF44500C9C7A8 /* NetworkRequest.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CACB61BB2ABCF5D600C9C7A8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CACB61B42ABCD5C700C9C7A8 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F80B76C2AB77301006925E5 /* NetworkManager.swift in Sources */,
+				CACB61B52ABCD5C700C9C7A8 /* Constants.swift in Sources */,
 				CA771D592ABA25280091788A /* Cache.swift in Sources */,
 				2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */,
 				021A54F92ABA2FD800C5AC29 /* SearchViewController.swift in Sources */,
@@ -342,6 +365,7 @@
 				02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */,
 				021A54FB2ABA2FF300C5AC29 /* GalleryViewController.swift in Sources */,
 				2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */,
+				CACB61B92ABCF44500C9C7A8 /* NetworkRequest.swift in Sources */,
 				2F80B7682AB77011006925E5 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,8 +29,9 @@ class GalleryViewModel {
             self.state = .loaded
             return
         }
-        let networkRequest = NetworkRequest(baseUrl: Constants.baseURL, apiKey: Constants.apiKey, path: "", params:
-                                                [Constants.imageType, Constants.quality], type: .GET, headers: [:])
+        let networkRequest = NetworkRequest(baseUrl: Constants.baseURL, apiKey: Constants.apiKey,
+        path: "", params: [Constants.imageType, Constants.quality, URLQueryItem(name: "q", value: searchTerm)],
+        type: .GET, headers: [:])
         do {
             let result = try await networkManager.execute(networkRequest, modelType: Gallery.self)
             images = result.hits ?? []

@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "55D0553B-08CE-45EA-9DC6-771C857B09B7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CandySpace.xcodeproj",
+      "identifier" : "2F29AFFC2AB4D4EB005EB01E",
+      "name" : "CandySpace"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CandySpace.xcodeproj",
+        "identifier" : "2F29B0122AB4D4EC005EB01E",
+        "name" : "CandySpaceTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CandySpace.xcodeproj",
+        "identifier" : "2F29B01C2AB4D4EC005EB01E",
+        "name" : "CandySpaceUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

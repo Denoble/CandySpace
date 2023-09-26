@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		021A54F92ABA2FD800C5AC29 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */; };
 		021A54FB2ABA2FF300C5AC29 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */; };
+		02C8263E2ABDC41000F94142 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8263D2ABDC41000F94142 /* PhotoViewController.swift */; };
 		02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */; };
 		04267CF82ABB213A00C7856F /* GalleryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */; };
 		2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		02ABBA542ABC87700005B079 /* CandySpace.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CandySpace.xctestplan; sourceTree = "<group>"; };
+		02C8263D2ABDC41000F94142 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
 		2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +122,7 @@
 				02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */,
 				021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */,
 				021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */,
+				02C8263D2ABDC41000F94142 /* PhotoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -126,6 +130,7 @@
 		2F29AFF42AB4D4EB005EB01E = {
 			isa = PBXGroup;
 			children = (
+				02ABBA542ABC87700005B079 /* CandySpace.xctestplan */,
 				2F29AFFF2AB4D4EB005EB01E /* CandySpace */,
 				2F29B0162AB4D4EC005EB01E /* CandySpaceTests */,
 				2F29B0202AB4D4EC005EB01E /* CandySpaceUITests */,
@@ -365,6 +370,7 @@
 				2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */,
 				CACB61B92ABCF44500C9C7A8 /* NetworkRequest.swift in Sources */,
 				2F80B7682AB77011006925E5 /* Model.swift in Sources */,
+				02C8263E2ABDC41000F94142 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

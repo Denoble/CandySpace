@@ -8,8 +8,17 @@
 import Foundation
 import UIKit
 
-class ImageCache {
-    static let shared = ImageCache()
+protocol ImageCacheHelper {
+    func getImage(url: String) -> UIImage?
+    func setImage(image: UIImage?, url: String)
+}
+
+protocol SearchResultCacheHelper {
+    func getResults(searchTerm: String) -> [Hits]?
+    func setResults(results: [Hits], searchTerm: String)
+}
+
+class ImageCache: ImageCacheHelper {
     private let cache = NSCache<NSString, UIImage>()
 
     func getImage(url: String) -> UIImage? {
@@ -23,8 +32,7 @@ class ImageCache {
     }
 }
 
-class SearchResultCache {
-    static let shared = SearchResultCache()
+class SearchResultCache: SearchResultCacheHelper {
     private var cache = [String: [Hits]]()
 
     func getResults(searchTerm: String) -> [Hits]? {

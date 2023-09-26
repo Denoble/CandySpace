@@ -17,13 +17,17 @@ enum ViewState {
 
 class GalleryViewModel {
     let networkManager: Networkable
+    let imageCache: ImageCacheHelper
+    let searchResultCache: SearchResultCacheHelper
     lazy var images = HitArrays()
-    init(networkManager: Networkable) {
+    init(networkManager: Networkable, imageCache: ImageCacheHelper, searchResultCache: SearchResultCacheHelper) {
         self.networkManager = networkManager
+        self.imageCache = imageCache
+        self.searchResultCache = searchResultCache
     }
     @Published var state = ViewState.loading
 
-    func getImageGallery(searchTerm: String) async {
+    func getImageGallery(searchTerm: String) async throws {
         if let cachedImages = getCachedImages(searchTerm: searchTerm) {
             images = cachedImages
             self.state = .loaded
@@ -34,7 +38,7 @@ class GalleryViewModel {
                 type: .GET, headers: [:])
         do {
             let result = try await networkManager.execute(networkRequest, modelType: Gallery.self)
-            images = result.hits ?? []
+            images = result?.hits ?? []
             setCachedImages(hits: images, searchTerm: searchTerm)
             self.state = .loaded
         } catch {
@@ -44,23 +48,23 @@ class GalleryViewModel {
     }
 
     func getCachedImages(searchTerm: String) -> HitArrays? {
-        if let cachedResults = SearchResultCache.shared.getResults(searchTerm: searchTerm) {
+        if let cachedResults = searchResultCache.getResults(searchTerm: searchTerm) {
             return cachedResults
         }
         return nil
     }
 
     func setCachedImages(hits: HitArrays, searchTerm: String) {
-        SearchResultCache.shared.setResults(results: hits, searchTerm: searchTerm)
+        searchResultCache.setResults(results: hits, searchTerm: searchTerm)
     }
 
     func getImage(url: URL) async -> UIImage? {
-        if let cachedImage = ImageCache.shared.getImage(url: url.absoluteString) {
+        if let cachedImage = imageCache.getImage(url: url.absoluteString) {
             return cachedImage
         } else {
             let loadedImage = await loadImageAsync(url: url)
             if let loadedImage = loadedImage {
-                ImageCache.shared.setImage(image: loadedImage, url: url.absoluteString)
+                imageCache.setImage(image: loadedImage, url: url.absoluteString)
             }
             return loadedImage
         }

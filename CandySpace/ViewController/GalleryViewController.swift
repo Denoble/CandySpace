@@ -11,7 +11,8 @@ import Combine
 class GalleryViewController: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var photoCollectionView: UICollectionView!
-    private let galleryViewModel = GalleryViewModel(networkManager: NetworkManager())
+    private let galleryViewModel = GalleryViewModel(networkManager: NetworkManager(),
+                                                    imageCache: ImageCache(), searchResultCache: SearchResultCache())
     private let itemsPerRow: CGFloat = 4
     var query: String?
     var anyCancelable: AnyCancellable?
@@ -43,7 +44,7 @@ class GalleryViewController: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         Task {
-            query.isEmpty ? nil : await self.galleryViewModel.getImageGallery(searchTerm: query)
+            query.isEmpty ? nil : try? await self.galleryViewModel.getImageGallery(searchTerm: query)
             DispatchQueue.main.async {
                 self.photoCollectionView.reloadData()
             }

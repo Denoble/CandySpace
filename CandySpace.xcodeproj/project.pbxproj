@@ -16,6 +16,7 @@
 		02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */; };
 		04267CF82ABB213A00C7856F /* GalleryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */; };
 		04BD95272AC347A000435D5E /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95262AC347A000435D5E /* MockNetworkManager.swift */; };
+		04BD952A2AC36C5C00435D5E /* UICommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95292AC36C5C00435D5E /* UICommon.swift */; };
 		2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */; };
 		2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */; };
 		2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0042AB4D4EB005EB01E /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
 		04BD95262AC347A000435D5E /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		04BD95292AC36C5C00435D5E /* UICommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICommon.swift; sourceTree = "<group>"; };
 		2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				2F29B0092AB4D4EC005EB01E /* Assets.xcassets */,
 				2F29B00E2AB4D4EC005EB01E /* Info.plist */,
 				0288391F2AC35586003D26C0 /* GoogleService-Info.plist */,
+				04BD95292AC36C5C00435D5E /* UICommon.swift */,
 			);
 			path = CandySpace;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				0288391E2AC354C7003D26C0 /* LoginView.swift in Sources */,
 				021A54F92ABA2FD800C5AC29 /* SearchViewController.swift in Sources */,
 				2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */,
+				04BD952A2AC36C5C00435D5E /* UICommon.swift in Sources */,
 				2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */,
 				02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */,
 				021A54FB2ABA2FF300C5AC29 /* GalleryViewController.swift in Sources */,

@@ -12,7 +12,7 @@ class PhotoViewController: UIViewController {
 //    var photoTitle: String?
     var photoUrl: String?
     var anyCancelable: AnyCancellable?
-    private let galleryViewModel = GalleryViewModel(networkManager: NetworkManager())
+    private let galleryViewModel = GalleryViewModel(networkManager: NetworkManager(), imageCache: ImageCache(), searchResultCache: SearchResultCache())
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var photoImageView: UIImageView!
     override func viewDidLoad() {

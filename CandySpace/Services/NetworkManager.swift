@@ -17,11 +17,11 @@ enum RequestType: String {
 }
 
 protocol Networkable {
-    func execute<T: Decodable>(_ request: Requestable, modelType: T.Type) async throws -> T
+    func execute<T: Decodable>(_ request: Requestable, modelType: T.Type) async throws -> T?
 }
 
 struct NetworkManager: Networkable {
-    func execute<T>(_ request: Requestable, modelType: T.Type) async throws -> T where T: Decodable {
+    func execute<T>(_ request: Requestable, modelType: T.Type) async throws -> T? where T: Decodable {
         let urlRequest = try request.getURLRequest()
         let (data, _) =   try await URLSession.shared.data(for: urlRequest)
         let decoder = JSONDecoder()

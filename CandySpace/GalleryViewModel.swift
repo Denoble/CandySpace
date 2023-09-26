@@ -38,7 +38,7 @@ class GalleryViewModel {
                 type: .GET, headers: [:])
         do {
             let result = try await networkManager.execute(networkRequest, modelType: Gallery.self)
-            images = result.hits ?? []
+            images = result?.hits ?? []
             setCachedImages(hits: images, searchTerm: searchTerm)
             self.state = .loaded
         } catch {

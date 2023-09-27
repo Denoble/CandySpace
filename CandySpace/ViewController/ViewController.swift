@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
+    let loginView = UIHostingController(rootView: LoginView())
+    let loginVM = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         styleSetting()
-        // set the timer for navigating to search page
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-            self.performSegue(withIdentifier: "toSearch", sender: nil)
+            self.navigationController?.pushViewController(self.loginView, animated: true)
         }
     }
     func styleSetting() {

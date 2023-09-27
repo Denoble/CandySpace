@@ -43,7 +43,7 @@
         <!--Search View Controller-->
         <scene sceneID="0iV-Jl-WNj">
             <objects>
-                <viewController id="6Lf-hE-veT" customClass="SearchViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Lf-hE-veT" customClass="SearchViewController" customModule="CandySpace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZWd-Ov-93k">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rUd-n5-r3E">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="882-nN-yGi" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="882-nN-yGi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jqz-Mw-8xC">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

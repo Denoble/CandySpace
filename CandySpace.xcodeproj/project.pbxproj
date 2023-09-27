@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		021A54F92ABA2FD800C5AC29 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */; };
 		021A54FB2ABA2FF300C5AC29 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */; };
+		0288391E2AC354C7003D26C0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288391D2AC354C7003D26C0 /* LoginView.swift */; };
+		028839202AC35586003D26C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0288391F2AC35586003D26C0 /* GoogleService-Info.plist */; };
+		028839242AC359FC003D26C0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 028839232AC359FC003D26C0 /* FirebaseAuth */; };
+		028839262AC36797003D26C0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028839252AC36797003D26C0 /* LoginViewModel.swift */; };
+		0288392C2AC3C6EE003D26C0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288392B2AC3C6EE003D26C0 /* SearchView.swift */; };
 		02C8263E2ABDC41000F94142 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8263D2ABDC41000F94142 /* PhotoViewController.swift */; };
 		02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */; };
 		04267CF82ABB213A00C7856F /* GalleryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */; };
 		04BD95272AC347A000435D5E /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95262AC347A000435D5E /* MockNetworkManager.swift */; };
+		04BD952A2AC36C5C00435D5E /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD95292AC36C5C00435D5E /* UIExtension.swift */; };
 		2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */; };
 		2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */; };
 		2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29B0042AB4D4EB005EB01E /* ViewController.swift */; };
@@ -50,11 +56,16 @@
 /* Begin PBXFileReference section */
 		021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		0288391D2AC354C7003D26C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0288391F2AC35586003D26C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		028839252AC36797003D26C0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0288392B2AC3C6EE003D26C0 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		02ABBA542ABC87700005B079 /* CandySpace.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CandySpace.xctestplan; sourceTree = "<group>"; };
 		02C8263D2ABDC41000F94142 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		02E207852ABA15A800D0830F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		04267CF72ABB213A00C7856F /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
 		04BD95262AC347A000435D5E /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		04BD95292AC36C5C00435D5E /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandySpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028839242AC359FC003D26C0 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2F80B7692AB772E5006925E5 /* GalleryViewModel.swift */,
+				028839252AC36797003D26C0 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -125,6 +138,8 @@
 				021A54F82ABA2FD800C5AC29 /* SearchViewController.swift */,
 				021A54FA2ABA2FF300C5AC29 /* GalleryViewController.swift */,
 				02C8263D2ABDC41000F94142 /* PhotoViewController.swift */,
+				0288391D2AC354C7003D26C0 /* LoginView.swift */,
+				0288392B2AC3C6EE003D26C0 /* SearchView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -153,6 +168,7 @@
 		2F29AFFF2AB4D4EB005EB01E /* CandySpace */ = {
 			isa = PBXGroup;
 			children = (
+				CA9AC0312AC44C8900B5FA66 /* UICommon */,
 				2F29B0002AB4D4EB005EB01E /* AppDelegate.swift */,
 				2F29B0022AB4D4EB005EB01E /* SceneDelegate.swift */,
 				CACB61BB2ABCF5D600C9C7A8 /* Utils */,
@@ -164,6 +180,7 @@
 				2F29B00B2AB4D4EC005EB01E /* LaunchScreen.storyboard */,
 				2F29B0092AB4D4EC005EB01E /* Assets.xcassets */,
 				2F29B00E2AB4D4EC005EB01E /* Info.plist */,
+				0288391F2AC35586003D26C0 /* GoogleService-Info.plist */,
 			);
 			path = CandySpace;
 			sourceTree = "<group>";
@@ -185,6 +202,14 @@
 				2F29B0232AB4D4EC005EB01E /* CandySpaceUITestsLaunchTests.swift */,
 			);
 			path = CandySpaceUITests;
+			sourceTree = "<group>";
+		};
+		CA9AC0312AC44C8900B5FA66 /* UICommon */ = {
+			isa = PBXGroup;
+			children = (
+				04BD95292AC36C5C00435D5E /* UIExtension.swift */,
+			);
+			path = UICommon;
 			sourceTree = "<group>";
 		};
 		CACB61BA2ABCF5A900C9C7A8 /* Services */ = {
@@ -223,6 +248,7 @@
 			);
 			name = CandySpace;
 			packageProductDependencies = (
+				028839232AC359FC003D26C0 /* FirebaseAuth */,
 			);
 			productName = CandySpace;
 			productReference = 2F29AFFD2AB4D4EB005EB01E /* CandySpace.app */;
@@ -297,6 +323,7 @@
 			);
 			mainGroup = 2F29AFF42AB4D4EB005EB01E;
 			packageReferences = (
+				028839222AC359FC003D26C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2F29AFFE2AB4D4EB005EB01E /* Products */;
 			projectDirPath = "";
@@ -316,6 +343,7 @@
 			files = (
 				2F29B00D2AB4D4EC005EB01E /* LaunchScreen.storyboard in Resources */,
 				2F29B00A2AB4D4EC005EB01E /* Assets.xcassets in Resources */,
+				028839202AC35586003D26C0 /* GoogleService-Info.plist in Resources */,
 				2F29B0082AB4D4EB005EB01E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,9 +393,13 @@
 				CACB61B52ABCD5C700C9C7A8 /* Constants.swift in Sources */,
 				CA771D592ABA25280091788A /* Cache.swift in Sources */,
 				2F29B0052AB4D4EB005EB01E /* ViewController.swift in Sources */,
+				0288391E2AC354C7003D26C0 /* LoginView.swift in Sources */,
+				0288392C2AC3C6EE003D26C0 /* SearchView.swift in Sources */,
 				021A54F92ABA2FD800C5AC29 /* SearchViewController.swift in Sources */,
 				2F80B76A2AB772E5006925E5 /* GalleryViewModel.swift in Sources */,
+				04BD952A2AC36C5C00435D5E /* UIExtension.swift in Sources */,
 				2F29B0012AB4D4EB005EB01E /* AppDelegate.swift in Sources */,
+				028839262AC36797003D26C0 /* LoginViewModel.swift in Sources */,
 				02E207862ABA15A800D0830F /* PhotoCollectionViewCell.swift in Sources */,
 				021A54FB2ABA2FF300C5AC29 /* GalleryViewController.swift in Sources */,
 				2F29B0032AB4D4EB005EB01E /* SceneDelegate.swift in Sources */,
@@ -719,6 +751,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		028839222AC359FC003D26C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		028839232AC359FC003D26C0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 028839222AC359FC003D26C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F29AFF52AB4D4EB005EB01E /* Project object */;
 }

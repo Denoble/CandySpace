@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 import Firebase
 
 struct LoginView: View {
-    @State var userEmail: String = ""
-    @State var userPassword: String = ""
+    @StateObject var loginViewModel = LoginViewModel()
+    @Environment(\.dismiss) var dismiss
+    @State private var isShowingSearchingView = false
     @State var showPassword: Bool = false
     var body: some View {
         ZStack  {
@@ -31,10 +33,10 @@ struct LoginView: View {
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, .screenWidth * 0.1)
                 
-                LineTextField( title:"Email", placeholder: "Enter your email address", txt: $userEmail, keyboardType: .emailAddress)
+                LineTextField( title:"Email", placeholder: "Enter your email address", txt: $loginViewModel.userEmail, keyboardType: .emailAddress)
                     .padding(.bottom,.screenWidth * 0.07)
                 
-                LineSecureField( title:"Password", placeholder:"Enter your password", txt: $userPassword, isShowPassword: $showPassword)
+                LineSecureField( title:"Password", placeholder:"Enter your password", txt: $loginViewModel.userPassword, isShowPassword: $showPassword)
                     .padding(.bottom,.screenWidth * 0.02)
                 
                 Button {
@@ -47,7 +49,16 @@ struct LoginView: View {
                 .padding(.bottom,.screenWidth * 0.03)
                 
                 RoundButton(title: "Log In") {
-                    //                    loginVM.serviceCallLogin()
+                    print("userEmail: \(loginViewModel.userEmail)")
+                    print("userPassword: \(loginViewModel.userPassword)")
+                    loginViewModel.signIn { error in
+                        if let error = error {
+                            print("LoginView: \(error)")
+                        } else {
+//                                dismiss()
+                            isShowingSearchingView = true
+                        }
+                    }
                 }
                 .padding(.bottom,.screenWidth * 0.05)
                 

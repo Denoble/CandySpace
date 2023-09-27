@@ -9,17 +9,13 @@ import UIKit
 import SwiftUI
 
 class ViewController: UIViewController {
-    
     let loginView = UIHostingController(rootView: LoginView())
     override func viewDidLoad() {
         super.viewDidLoad()
         styleSetting()
         // set the timer for navigating to search page
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-            
-            
             self.navigationController?.pushViewController(self.loginView, animated: true)
-//            self.performSegue(withIdentifier: "toSearch", sender: nil)
         }
     }
     func styleSetting() {

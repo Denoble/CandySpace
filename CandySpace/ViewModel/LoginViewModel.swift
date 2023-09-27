@@ -13,7 +13,6 @@ import SwiftUI
 class LoginViewModel: ObservableObject {
     @Published var userEmail = ""
     @Published var userPassword = ""
-    var loggedIn: Bool = false
     func signIn(completionHandler: @escaping (Error?) -> Void) {
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { [weak self] (_, error) in
             if let error = error {

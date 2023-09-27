@@ -19,13 +19,10 @@ class LoginViewModel: ObservableObject {
               print(error.localizedDescription)
                 completionHandler(error)
             } else {
-//              self.state = .signedIn
-                print("vmSE: \(self?.userEmail)")
-                print("vmSP: \(self?.userPassword)")
+                print("email: \(self?.userEmail ?? "")")
+                print("password: \(self?.userPassword ?? "")")
                 print("success")
                 completionHandler(nil)
-//                hostingVIewController.navigationController?.pushViewController(SearchViewController(), animated: true)
-//                UINavigationController.pushViewController(searchViewController, animated: true)
             }
           }
     }

@@ -13,14 +13,11 @@ struct LoginView: View {
   @StateObject var loginViewModel = LoginViewModel()
   @State private var isShowingSearchingView = false
 
-  @Environment(\.dismiss) var dismiss
   var body: some View {
-
     if isShowingSearchingView {
       SearchView()
-        .frame(
-          width: .screenWidth,
-          height: .screenHeight)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.all)
     } else {
       ZStack {
         Image("splash_bg")
@@ -69,8 +66,6 @@ struct LoginView: View {
           .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
           .padding(.bottom, .screenWidth * 0.03)
           Button {
-            print("userEmail: \(loginViewModel.userEmail)")
-            print("userPassword: \(loginViewModel.userPassword)")
             loginViewModel.signIn { error in
               if let error = error {
                 print("LoginView: \(error)")
@@ -80,6 +75,7 @@ struct LoginView: View {
             }
           } label: {
             Text("Login")
+              .font(.system(size: 24))
               .foregroundColor(.white)
               .multilineTextAlignment(.center)
           }
@@ -90,7 +86,8 @@ struct LoginView: View {
             maxHeight: 60
           )
           .background(Color(hex: 0x00083F))
-          .cornerRadius(20)
+          .cornerRadius(10)
+          .padding(.bottom, 30)
           HStack {
             Text("Dont have an account?")
               .foregroundColor(Color.gray)

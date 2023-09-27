@@ -16,7 +16,7 @@ struct SearchView: UIViewControllerRepresentable {
         storyboard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController
         let searchViewController =
         storyboard.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController
-        navigationViewController?.modalPresentationStyle = .fullScreen
+        navigationViewController?.viewControllers = [searchViewController ?? SearchViewController()]
         return navigationViewController ?? UINavigationController()
     }
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {

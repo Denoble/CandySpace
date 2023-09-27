@@ -10,14 +10,11 @@ import SwiftUI
 
 struct SearchView: UIViewControllerRepresentable {
     typealias UIViewControllerType = SearchViewController
-    
-    
     func makeUIViewController(context: Context) -> SearchViewController {
-        return SearchViewController()
+        let viewController = SearchViewController()
+        return viewController
     }
-    
     func updateUIViewController(_ uiViewController: SearchViewController, context: Context) {
         //
     }
-    
 }

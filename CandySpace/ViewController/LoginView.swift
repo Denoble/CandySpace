@@ -5,95 +5,114 @@
 //  Created by Lawrence on 9/26/23.
 //
 
+import Firebase
 import SwiftUI
 import UIKit
-import Firebase
 
 struct LoginView: View {
-    @StateObject var loginViewModel = LoginViewModel()
-    @Environment(\.dismiss) var dismiss
-    @State private var isShowingSearchingView = false
-    @State var showPassword: Bool = false
+  @StateObject var loginViewModel = LoginViewModel()
+  @Environment(\.dismiss) var dismiss
+  @State private var isShowingSearchingView = false
     var body: some View {
-        ZStack  {
-            Image("splash_bg")
-                .resizable()
-                .scaledToFill()
-                .frame( width: .screenWidth,
-                        height: .screenHeight )
-            VStack{
-                Image("logo")
+            ZStack {
+                Image("splash_bg")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width:100)
-                    .padding(.bottom, .screenWidth * 0.1)
-                
-                Text("Enter you email and password")
-                    .foregroundColor(.secondaryText)
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, .screenWidth * 0.1)
-                
-                LineTextField( title:"Email", placeholder: "Enter your email address", txt: $loginViewModel.userEmail, keyboardType: .emailAddress)
-                    .padding(.bottom,.screenWidth * 0.07)
-                
-                LineSecureField( title:"Password", placeholder:"Enter your password", txt: $loginViewModel.userPassword, isShowPassword: $showPassword)
-                    .padding(.bottom,.screenWidth * 0.02)
-                
-                Button {
-                    
-                } label: {
-                    Text("Forgot Password?")
-                        .foregroundColor(.primaryText)
-                }
-                .frame(minWidth:0 , maxWidth: .infinity, alignment: .trailing)
-                .padding(.bottom,.screenWidth * 0.03)
-                
-                RoundButton(title: "Log In") {
-                    print("userEmail: \(loginViewModel.userEmail)")
-                    print("userPassword: \(loginViewModel.userPassword)")
-                    loginViewModel.signIn { error in
-                        if let error = error {
-                            print("LoginView: \(error)")
-                        } else {
-//                                dismiss()
-                            isShowingSearchingView = true
+                    .scaledToFill()
+                    .frame(
+                        width: .screenWidth,
+                        height: .screenHeight)
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100)
+                        .padding(.bottom, .screenWidth * 0.3)
+                    VStack {
+                        Text("Email")
+                            .foregroundColor(Color(hex: 0x7C7C7C))
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        TextField("Enter your email address", text: $loginViewModel.userEmail)
+                            .padding()
+                            .background(Color(hex: 0xECECEC))
+                            .cornerRadius(5.0)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .frame(height: 40)
+                    }.padding(.bottom, .screenWidth * 0.05)
+                    VStack {
+                        Text("Password")
+                            .foregroundColor(Color(hex: 0x7C7C7C))
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        SecureField("Enter your password", text: $loginViewModel.userPassword)
+                            .padding()
+                            .background(Color(hex: 0xECECEC))
+                            .cornerRadius(5)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .frame(height: 40)
+                    }.padding(.bottom, .screenWidth * 0.05)
+                    Button {
+                    } label: {
+                        Text("Forgot Password?")
+                            .foregroundColor(Color(hex: 0x00083F))
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                    .padding(.bottom, .screenWidth * 0.03)
+                    Button {
+                        print("userEmail: \(loginViewModel.userEmail)")
+                        print("userPassword: \(loginViewModel.userPassword)")
+                        loginViewModel.signIn { error in
+                            if let error = error {
+                                print("LoginView: \(error)")
+                            } else {
+                                isShowingSearchingView.toggle()
+                            }
                         }
                     }
+                label: {
+                    Text("Login")
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                 }
-                .padding(.bottom,.screenWidth * 0.05)
-                
-                
-                HStack{
-                    Text("Dont have an account?")
-                        .foregroundColor(.primaryText)
-                    Text("Sign Up?")
-//                        .font(.customfont(.medium , fontSize: 14))
-                        .foregroundColor(.primaryApp)
-                    
+                .frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 60,
+                    maxHeight: 60
+                )
+                .background(Color(hex: 0x00083F))
+                .cornerRadius(20)
+                .navigationBarTitle("SwiftUI to UIKit")
+                .sheet(isPresented: $isShowingSearchingView) {
+                    SearchView()
                 }
-                Spacer()
-                
-                
+                    HStack {
+                        Text("Dont have an account?")
+                            .foregroundColor(Color.gray)
+                        Text("Sign Up?")
+                        //                        .font(.customfont(.medium , fontSize: 14))
+                            .foregroundColor(Color(hex: 0x00083F))
+                    }
+                    Spacer()
+                }
+                .padding(.top, 40)
+                .padding(.horizontal, 20)
+                .padding(.top, 80)
             }
-            .padding(.top, .topInsets + 64)
-            .padding(.horizontal, 20)
-            .padding(.top, .bottomInsets)
-        }
-//        .alert(isPresented: $loginVM.showError){
-//            Alert(title: Text(Globs.AppName), message: Text(loginVM.errorMessage),
-//                  dismissButton: .default(Text("Ok")))
-//        }
-        .background(Color.white)
-        .navigationTitle("")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
-        .ignoresSafeArea()
+            //        .alert(isPresented: $loginVM.showError){
+            //            Alert(title: Text(Globs.AppName), message: Text(loginVM.errorMessage),
+            //                  dismissButton: .default(Text("Ok")))
+            //        }
+            .background(Color.white)
+            .navigationTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+            .ignoresSafeArea()
     }
 }
 
-// #Preview {
-//    LoginView()
-// }
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()

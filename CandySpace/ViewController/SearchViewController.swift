@@ -17,7 +17,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleSetting()
-        // hide navigation back button
         self.navigationItem.hidesBackButton = true
         //
         searchTextField.becomeFirstResponder()

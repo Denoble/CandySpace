@@ -5,16 +5,15 @@
 //  Created by Lawrence on 9/26/23.
 //
 
-import Firebase
 import SwiftUI
 import UIKit
 
 struct LoginView: View {
   @StateObject var loginViewModel = LoginViewModel()
-  @State private var isShowingSearchingView = false
+  @State private var showSearchView = false
 
   var body: some View {
-    if isShowingSearchingView {
+    if showSearchView {
       SearchView()
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
@@ -68,9 +67,9 @@ struct LoginView: View {
           Button {
             loginViewModel.signIn { error in
               if let error = error {
-                print("LoginView: \(error)")
+                print("\(error)")
               } else {
-                isShowingSearchingView.toggle()
+                showSearchView.toggle()
               }
             }
           } label: {
@@ -92,7 +91,6 @@ struct LoginView: View {
             Text("Dont have an account?")
               .foregroundColor(Color.gray)
             Text("Sign Up?")
-              //                        .font(.customfont(.medium , fontSize: 14))
               .foregroundColor(Color(hex: 0x00083F))
           }
           Spacer()
@@ -101,10 +99,6 @@ struct LoginView: View {
         .padding(.horizontal, 20)
         .padding(.top, 80)
       }
-      //        .alert(isPresented: $loginVM.showError){
-      //            Alert(title: Text(Globs.AppName), message: Text(loginVM.errorMessage),
-      //                  dismissButton: .default(Text("Ok")))
-      //        }
       .background(Color.white)
       .navigationTitle("")
       .navigationBarBackButtonHidden(true)

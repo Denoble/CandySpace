@@ -6,36 +6,47 @@
 //
 
 import SwiftUI
+import UIKit
 import Firebase
 
 struct LoginView: View {
-    @State var userEmail: String = ""
-    @State var userPassword: String = ""
+    @StateObject var loginViewModel = LoginViewModel()
+    @Environment(\.dismiss) var dismiss
+    @State private var isShowingSearchingView = false
     var body: some View {
-        VStack {
-            HStack {
-                Text("Email: ")
-                TextField("Enter Email", text: $userEmail)
-                    .keyboardType(.emailAddress)
+        NavigationStack {
+            VStack {
+                HStack {
+                    Text("Email: ")
+                    TextField("Enter Email", text: $loginViewModel.userEmail)
+                        .keyboardType(.emailAddress)
+                }
+                HStack {
+                    Text("Password: ")
+                    SecureField("Enter Password", text: $loginViewModel.userPassword)
+                }
+                Button(
+                    action: {
+                        print("userEmail: \(loginViewModel.userEmail)")
+                        print("userPassword: \(loginViewModel.userPassword)")
+                        loginViewModel.signIn { error in
+                            if let error = error {
+                                print("LoginView: \(error)")
+                            } else {
+//                                dismiss()
+                                isShowingSearchingView = true
+                            }
+                        }
+                    }, label: {
+                        Text("Login")
+                    })
             }
-            HStack {
-                Text("Password: ")
-                SecureField("Enter Password", text: $userPassword)
-            }
-            Button(action: {                
-                print("userEmail: \(userEmail)")
-                print("userPassword: \(userPassword)")
-                
-//                Auth.auth().signIn(withEmail: userEmail, password: userPassword) { [weak self] authResult, error in
-//                  guard let strongSelf = self else { return }
-//                  // ...
-//                }
-            }, label: {
-                Text("Login")
+            .navigationDestination(isPresented: $isShowingSearchingView, destination: {
+                SearchView()
             })
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
         .navigationBarBackButtonHidden(true)
     }
 }

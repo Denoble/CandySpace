@@ -11,6 +11,8 @@ import UIKit
 struct LoginView: View {
     @StateObject var loginViewModel = LoginViewModel()
     @State private var showSearchView = false
+    @State private var showAlert = false
+    @State private var errorMessage = ""
     var body: some View {
         if showSearchView {
             SearchView()
@@ -68,6 +70,8 @@ struct LoginView: View {
                         loginViewModel.signIn { error in
                             if let error = error {
                                 print("\(error)")
+                                showAlert.toggle()
+                                errorMessage = error.localizedDescription
                             } else {
                                 withAnimation {
                                     showSearchView.toggle()
@@ -93,6 +97,13 @@ struct LoginView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 20)
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Login Failed"),
+                    message: Text("\(errorMessage)"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
             .background(Color.white)
             .navigationTitle("")

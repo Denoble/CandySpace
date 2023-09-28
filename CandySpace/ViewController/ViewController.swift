@@ -10,12 +10,29 @@ import SwiftUI
 
 class ViewController: UIViewController {
     let loginView = UIHostingController(rootView: LoginView())
-    let loginVM = LoginViewModel()
+    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         styleSetting()
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-            self.navigationController?.pushViewController(self.loginView, animated: true)
+            if let time = UserDefaults.standard.object(forKey: "LoginTime") as? Date {
+//                print("LoginTime: \(time)")
+//                print("Now: \(Date.now)")
+                let now = Date.now.timeIntervalSinceReferenceDate
+                let interval = now - time.timeIntervalSinceReferenceDate
+//                print("interval: \(interval)")
+                guard let searchView = self.storyBoard.instantiateViewController(
+                    withIdentifier: "SearchViewController"
+                ) as? SearchViewController else { return }
+                if interval > 60 {
+                    self.navigationController?.pushViewController(self.loginView, animated: true)
+                    print("session expired")
+                } else {
+                    self.navigationController?.pushViewController(searchView, animated: true)
+                }
+            } else {
+                self.navigationController?.pushViewController(self.loginView, animated: true)
+            }
         }
     }
     func styleSetting() {

@@ -22,6 +22,9 @@ class LoginViewModel: ObservableObject {
                 print("email: \(self?.userEmail ?? "")")
                 print("password: \(self?.userPassword ?? "")")
                 print("success")
+                let userDefault = UserDefaults.standard
+                userDefault.setValue(Date.now, forKey: "LoginTime")
+                userDefault.synchronize()
                 completionHandler(nil)
             }
           }
